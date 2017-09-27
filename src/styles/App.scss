@@ -22,6 +22,26 @@ html,body{
   height: 100%;
   overflow: hidden;
   background-color: #ddd;
+  //将选择器提取到最外层
+  @at-root {
+    .img-figure{
+      position: absolute;
+      width: 320px;
+      height: 360px;
+      margin: 0;
+      padding: 40px;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    figcaption{
+      text-align: center;
+      .img-title{
+        margin: 20px 0 0 0;
+        color: #a7a0a2;
+        font-size: 16px;
+      }
+    }
+  }
 }
 /* image -- end */
 
@@ -33,5 +53,8 @@ html,body{
   z-index: 101;
   width: 100%;
   text-align: center;
+}
+.games{
+  width: 240px;
 }
 /* controller -- end */
