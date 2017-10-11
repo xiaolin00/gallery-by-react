@@ -1,6 +1,16 @@
+
 @mixin abpos {
   position: absolute;
 }
+@font-face {
+  font-family: 'icon-turn-arrow';
+  src:
+  url('../font/icon/turn-arrow.eot') format("embedded-opentype"), /* IE9*/
+  url('../font/icon/turn-arrow.woff') format('woff'), /* chrome、firefox */
+  url('../font/icon/turn-arrow.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../font/icon/turn-arrow.svg') format('svg'); /* iOS 4.1- */
+}
+
 
 html,body{
   width: 100%;
@@ -80,6 +90,44 @@ html,body{
   z-index: 101;
   width: 100%;
   text-align: center;
+
+  @at-root {
+    .controller-unit{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+      vertical-align: middle;
+
+      text-align: center;
+
+      cursor: pointer;
+      background-color: #aaaaaa;
+      border-radius: 50%;
+      transform: scale(.5);
+      transition: transform .6s ease-in-out, background-color .3s;
+      &.is-center{
+        background-color: #888888;
+        transform: scale(1);
+        &::after{
+          color: #ffffff;
+          font-family: "icon-turn-arrow";
+          content: "\e600";
+          line-height: 30px;
+          font-size: 80%;
+          //字体渲染，灰阶渲染 当字体浅色，背景为深色时
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        &.is-inverse{
+          background-color: #555555;
+          transform: rotateY(180deg);
+        }
+
+      }
+    }
+  }
 }
 .games{
   width: 260px;
