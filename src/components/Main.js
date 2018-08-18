@@ -270,7 +270,8 @@ class AppComponent extends React.Component {
         //计算中心图片的位置点
         this.Constant.centerPos = {
             left: halfStageW - halfImgW,
-            top: halfStageH - halfImgH
+            // top: halfStageH - halfImgH
+            top:  '20%'
         };
         //计算左侧右侧区域图片排布位置的取值范围
         this.Constant.hPosRange.leftSecX[0] = -halfImgW;

@@ -7,10 +7,223 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
+<style>
+  #c{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*z-index: -5;*/
+  }
+  .img_xin{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    display: inline-block;
+  }
+  .p1,.p2,.p3{
+    font-size: 25px;
+    color: pink;
+  }
+  .content_text{
+    text-align: center;
+    position: absolute;
+    top: 66%;
+    left: 30%;
+    /*margin-top: 40%;*/
+
+  }
+  .img_xin{
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: -70%;
+    left: 26%;
+    opacity: 0;
+  }
+  .img_xin img{
+    width: 100%;
+    text-align: center;
+  }
+  .content_text_2{
+    /*display: none;*/
+    text-align: center;
+    /*margin-top: 15%;*/
+    position: absolute;
+    top: 22%;
+    left: 35%;
+    width: 30%;
+  }
+  .content_text_2 p,.content_text p{
+    display: none;
+  }
+  .p5,.p6,.p7,.p4{
+    color: #E93D6D;
+    font-size: 23px;
+  }
+  .p7{
+    font-size: 30px;
+  }
+  .p8{
+    font-size: 16px;
+  }
+  #app{
+    position: relative;
+    z-index: -4;
+    opacity: 0;
+  }
+
+</style>
 <body>
+
   <div id="app" class="content">APPLICATION CONTENT</div>
+  <canvas id="c"></canvas>
+  <div class="content_text">
+    <p class="p1">媳妇，你知道为什么我那么喜欢你，那么爱你么？</p>
+    <p class="p2">因为生活很苦，需要你这块糖！</p>
+    <p class="p3">我说，所有的酒都不如你！</p>
+  </div>
+
+  <div class="content_text_2">
+    <p class="p4">我们的未来还很精彩，需要你我探索...</p>
+    <p class="p5">生活的惊喜永不停歇，需要我们用心去感受...</p>
+    <p class="p6">我爱你，绝不是说说而已！</p>
+    <p class="p7">往后余生，都是你!</p>
+    <p class="p8">点我，精彩继续！</p>
+  </div>
+  <div class="img_xin">
+    <img src="/images/aaa.png" alt="">
+  </div>
+
+
+  <audio id="music" preload loop>
+    <source src="/music/yusheng.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+      var b = document.body;
+      var c = document.getElementsByTagName('canvas')[0];
+      var a = c.getContext('2d');
+  </script>
+  <script type="text/javascript" src="/config/jquery.min.js"></script>
+
+  <script>
+
+      $(function () {
+          var L = 1
+          $(".p1").fadeIn(2000, function () {
+              $(".p2").fadeIn(8000, function () {
+                  $(".p3").fadeIn(5000, function () {
+                      $(".img_xin").animate({
+                          "top": "2%",
+                          "opacity": "1"
+                      }, 3000, function () {
+                          $(".img_xin").fadeOut(2000, function () {
+                              $(".content_text").fadeOut(2000, function () {
+                                  $(".p4").fadeIn(2000, function () {
+                                      $(this).fadeOut(1000, function () {
+                                          $(".p5").fadeIn(2000, function () {
+                                              $(this).fadeOut(1000, function () {
+                                                  $(".p6").fadeIn(2000, function () {
+                                                      $(this).fadeOut(1000, function () {
+                                                          $(".p7").fadeIn(2000, function () {
+                                                              $(".p8").fadeIn(2000,function () {
+                                                                  $(this).click(function () {
+                                                                      L = 0 ;
+                                                                      $("#app").css("z-index",10);
+                                                                      $(".content_text_2 p").fadeOut(2000,function () {
+                                                                          $("#app").animate({
+                                                                              "opacity" : 1
+                                                                          },2000)
+                                                                      })
+                                                                  })
+                                                              })
+                                                              $("#music")[0].play();
+
+
+                                                          })
+                                                      })
+                                                  })
+                                              });
+                                          })
+                                      })
+                                  })
+                              });
+                          })
+
+                      })
+                  })
+              });
+          })
+
+      var M = Math, n = M.pow, i, E = 2, F = "rgba(233,61,109,", d = M.cos, z = M.sin, u = 30, W = window,
+          w = c.width = W.innerWidth, h = c.height = W.innerHeight, r = function () {
+              return M.random() * 2 - 1
+          }, y = "px Arial", v = "♥", q = "♥", X = w / 2, Y = h / 2, T = 4, p = function () {
+              var e = this;
+              e.g = function () {
+                  e.x = X;
+                  e.y = Y;
+                  e.k = 0;
+                  e.l = 0;
+                  e.t = M.random() * 19000;
+                  e.c = e.t
+              };
+              e.d = function () {
+                  a.fillStyle = F + (e.c / e.t) + ")";
+                  a.fillText(q, e.x, e.y);
+                  e.c -= 50;
+                  e.x += e.k;
+                  e.y += e.l;
+                  e.k = e.k + r();
+                  e.l = e.l + r();
+                  if (e.c < 0 || e.x > w || e.x < 0 || e.y > h || e.y < 0) {
+                      e.g()
+                  }
+              };
+              e.g()
+          }, A, B;
+      a.textAlign = "center";
+      a.strokeStyle = "#000";
+      a.lineWidth = 2;
+      for (i = 0; i < 350; i++) {
+          M[i] = new p()
+      }
+      setInterval(function () {
+          a.clearRect(0, 0, w, h);
+          a.font = u + y;
+          X = (w / 6 * n(z(T), 3) + w / 2);
+          Y = 0.8 * (-h / 40 * (13 * d(T) - 5 * d(2 * T) - 2 * d(3 * T) - d(4 * T)) + h / 2.3);
+          T += (z(T) + 3) / 99;
+          for (i = 0; i < 350; i++) {
+              with (M[i]) {
+                  A = (x / w - 0.5) * 2, B = -(y / h - 0.5);
+                  if (L && (A * A + 2 * n((B - 0.5 * n(M.abs(A), 0.5)), 2)) > 0.11) {
+                      k = l = 0
+                  }
+                  d()
+              }
+          }
+          a.font = 120 + y;
+          if (E > 0.1) {
+              if (E < 1) {
+                  a.fillStyle = F + E + ")";
+                  a.fillText("猫猫", w / 2, h / 2)
+              }
+              E -= 0.02
+          }
+          a.fillStyle = "#E93D6D";
+          a.fillText(v, X, Y + u);
+          a.strokeText(v, X, Y + u)
+      }, 50);
+      b.bgColor = "#FFEFF2";
+      c.onmouseup = function () {
+          L = (L) ? 0 : 1
+      }
+      })
+  </script>
 
   <script>__REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__</script>
   <script type="text/javascript" src="/assets/app.js"></script>
+
 </body>
 </html>
