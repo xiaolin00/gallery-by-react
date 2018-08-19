@@ -77,7 +77,7 @@
 
 </style>
 <body>
-
+<!--注： 线上路径与本地不一样，本地浏览需完善路径前缀-->
   <div id="app" class="content">APPLICATION CONTENT</div>
   <canvas id="c"></canvas>
   <div class="content_text">
@@ -131,6 +131,7 @@
                                                           $(".p7").fadeIn(2000, function () {
                                                               $(".p8").fadeIn(2000,function () {
                                                                   $(this).click(function () {
+                                                                      $("#music")[0].play();
                                                                       L = 0 ;
                                                                       $("#app").css("z-index",10);
                                                                       $(".img_xin").fadeIn(2000,function () {
@@ -146,8 +147,6 @@
                                                                       })
                                                                   })
                                                               })
-                                                              $("#music")[0].play();
-
 
                                                           })
                                                       })
